@@ -12,6 +12,7 @@ def home(request):
     # }
     return render(request, 'home.html')
 
+@login_required
 def account_details(request):
     user = request.user
     account = user.bankaccount  # Assuming one-to-one relationship with User
@@ -36,10 +37,6 @@ def login_request(request):
             return render(request, "login.html", {"error": "Kullanıcı adı yada Şifre Hatalı"})
     else:
         return render(request, "login.html")
-
-def register_request(request):
-    return render(request, "register.html")
-
 
 def register_request(request):
     return render(request, "register.html")
